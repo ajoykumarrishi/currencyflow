@@ -1,6 +1,6 @@
-import { FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 
-function FooterComponent() {
+function Footer() {
   return (
     <footer className="py-3 mt-0">
       <div className="container mx-auto text-center">
@@ -30,4 +30,4 @@ function FooterComponent() {
   );
 }
 
-export default FooterComponent;
+export default Footer;

@@ -15,3 +15,24 @@ export async function fetchExchangeRates(baseCurrency) {
       throw new Error("Error:", error.message);
     });
 }
+
+export async function fetchConvertedResult(
+  baseCurrency,
+  targetCurrency,
+  baseAmount
+) {
+  return fetch(
+    `${BASE_URL}/pair/${baseCurrency}/${targetCurrency}/${baseAmount}`
+  )
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(
+          `Unable to convert ${baseCurrency} to ${targetCurrency}!\nStatus: ${response.status}`
+        );
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw new Error("Error:", error.message);
+    });
+}
