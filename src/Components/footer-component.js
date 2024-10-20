@@ -2,8 +2,8 @@ import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 function Footer() {
   return (
-    <footer className="py-3 mt-0">
-      <div className="container mx-auto text-center">
+    <footer className="w-full py-3 mt-auto bg-gradient-to-r from-orange-100 to-orange-50 border-t border-orange-200">
+      <div className="container mx-auto text-center px-4">
         <p className="text-purple-900 font-semibold text-lg">
           © {new Date().getFullYear()} Rishi Ajoykumar. All rights reserved.
         </p>
