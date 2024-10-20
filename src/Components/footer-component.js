@@ -9,7 +9,7 @@ function FooterComponent() {
         </p>
         <div className="flex justify-center space-x-6 mt-4">
           <a
-            href="https://twitter.com/your-twitter-handle"
+            href="https://x.com/ajoykumarrishi"
             target="_blank"
             rel="noopener noreferrer"
             className="text-purple-700 hover:text-purple-900 transition duration-200 flex items-center"
@@ -17,7 +17,7 @@ function FooterComponent() {
             <FaTwitter className="mr-2" /> Twitter
           </a>
           <a
-            href="https://linkedin.com/in/your-linkedin-handle"
+            href="https://www.linkedin.com/in/rishiajoykumar/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-purple-700 hover:text-purple-900 transition duration-200 flex items-center"
