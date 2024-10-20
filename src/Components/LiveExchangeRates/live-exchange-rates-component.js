@@ -28,7 +28,7 @@ function LiveExchangeRates() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-orange-100 to-orange-50 p-6 flex flex-col items-center">
+    <div className="p-3 flex flex-col items-center"> 
       <h1 className="text-4xl font-bold text-purple-900 mb-6 text-center">
         Live Exchange Rates
       </h1>
@@ -66,7 +66,7 @@ function LiveExchangeRates() {
         </div>
       </div>
 
-      <div className="w-full max-w-3xl">
+      <div className="w-full max-w-3xl mb-0"> {/* mb-0 added to remove any bottom margin */}
         <table className="min-w-full bg-white rounded-lg shadow-lg overflow-hidden">
           <thead className="bg-orange-200">
             <tr>
