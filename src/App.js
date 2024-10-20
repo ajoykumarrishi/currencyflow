@@ -1,5 +1,11 @@
+import LiveExchangeRates from "./Components/LiveExchangeRates/live-exchange-rates-component";
+
 function App () {
-  return <h1>Hello World!</h1>
+  return (
+    <div>
+      <LiveExchangeRates />
+    </div>
+  )
 }
 
 export default App;
