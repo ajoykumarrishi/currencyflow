@@ -30,13 +30,13 @@ CurrencyFlow is a React-based web app that allows users to quickly convert curre
    ```git clone https://github.com/ajoykumarrishi/currencyflow.git```
 
 2.	**Navigate into the project directory**:
-   
-   ```cd currencyflow```
+
+    ```cd currencyflow```
 
 
 3.	**Install dependencies**:
-   
-   ```npm install```
+
+    ```npm install```
 
 4.	**Set up your API key: Create a .env file and add your API key**:
     
@@ -51,17 +51,6 @@ CurrencyFlow is a React-based web app that allows users to quickly convert curre
 To build the project for production:
 
     ```npm run build```
-
-### Project Structure
-
-.
-├── public               # Public assets
-├── src
-│   ├── Components       # React components
-│   ├── Services         # API services for exchange rates
-│   ├── App.js           # Main App component
-│   ├── index.js         # Entry point
-│   └── index.css        # Global styles (Tailwind CSS)
 
 ### API Endpoints
 
