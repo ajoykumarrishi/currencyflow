@@ -56,9 +56,3 @@ To build the project for production:
 
 	•	fetchExchangeRates(baseCurrency): Retrieves exchange rates for the base currency.
 	•	fetchConvertedResult(baseCurrency, targetCurrency, baseAmount): Converts the base amount into the target currency.
-
-### Contact
-
-Developed by Rishi Ajoykumar.
-Enjoy using CurrencyFlow!
-
