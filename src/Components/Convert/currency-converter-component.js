@@ -46,6 +46,7 @@ function CurrencyConverter() {
   const handleSwapCurrencies = () => {
     setBaseCurrency(targetCurrency);
     setTargetCurrency(baseCurrency);
+    setBaseAmount(Number(convertedValue).toFixed(2));
   };
 
   const filteredRates = Object.keys(conversionRates).filter(
@@ -105,7 +106,7 @@ function CurrencyConverter() {
             </select>
           </div>
           <div className="w-full border border-purple-300 rounded-lg p-4 h-16 bg-gray-50 text-gray-700 flex items-center justify-center">
-            {convertedValue ? convertedValue : "Calculating..."}
+            {convertedValue ? convertedValue.toFixed(2) : "Calculating..."}
           </div>
         </div>
       </div>
