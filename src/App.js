@@ -16,7 +16,7 @@ function MainContent() {
         isConverterRoute ? "flex justify-center items-center" : ""
       }`}
     >
-      <div className={isConverterRoute ? "w-2/3" : ""}>
+      <div className={isConverterRoute ? "w-5/6" : ""}>
         <Routes>
           <Route path="/" element={<CurrencyConverter />} />
           <Route path="/live-rates" element={<LiveExchangeRates />} />

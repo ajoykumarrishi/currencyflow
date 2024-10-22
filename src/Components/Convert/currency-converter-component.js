@@ -54,11 +54,11 @@ function CurrencyConverter() {
 
   return (
     <div className="flex flex-col items-center h-full w-full">
-      <h1 className="text-4xl font-bold text-purple-900 text-center mb-6">
+      <h1 className="text-4xl font-bold text-purple-900 text-center m-6">
         Currency Converter
       </h1>
 
-      <div className="bg-white shadow-lg rounded-lg p-4 lg:px-4 w-full max-w-4xl flex flex-col lg:flex-row gap-6 h-full">
+      <div className="bg-white shadow-lg rounded-lg p-4 lg:px-4 w-full flex flex-col lg:flex-row gap-6 h-full">
         <div className="flex flex-col md:flex-1 gap-4 bg-orange-50 rounded-lg p-6 h-full">
           <div className="flex-grow">
             <select
