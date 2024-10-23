@@ -1,14 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   fetchConvertedResult,
   fetchExchangeRates,
 } from "../../Services/exchange-rate-service";
 
-function CurrencyConverter() {
-  const [convertedValue, setConvertedValue] = useState("");
-  const [baseCurrency, setBaseCurrency] = useState("USD");
-  const [targetCurrency, setTargetCurrency] = useState("INR");
-  const [baseAmount, setBaseAmount] = useState(1);
+function CurrencyConverter({
+  baseCurrency,
+  setBaseCurrency,
+  targetCurrency,
+  setTargetCurrency,
+  baseAmount,
+  convertedValue,
+  setConvertedValue,
+  handleBaseAmountChange,
+  handleSwapCurrencies,
+}) {
   const [conversionRates, setConversionRates] = useState({});
 
   useEffect(() => {
@@ -37,17 +43,7 @@ function CurrencyConverter() {
       }
     }
     convertValues();
-  }, [baseCurrency, targetCurrency, baseAmount]);
-
-  const handleBaseAmountChange = (e) => {
-    setBaseAmount(e.target.value);
-  };
-
-  const handleSwapCurrencies = () => {
-    setBaseCurrency(targetCurrency);
-    setTargetCurrency(baseCurrency);
-    setBaseAmount(Number(convertedValue).toFixed(2));
-  };
+  }, [baseCurrency, targetCurrency, baseAmount, setConvertedValue]);
 
   const filteredRates = Object.keys(conversionRates).filter(
     (currency) => currency !== baseCurrency

@@ -6,15 +6,21 @@ function HistoricalRatesChart({ baseCurrency, targetCurrency }) {
   const canvasRef = useRef(null);
   const chartInstanceRef = useRef(null);
   const [historicalMap, setHistoricalMap] = useState({});
+  const [isValidCurrency, setIsValidCurrency] = useState(true);
 
   useEffect(() => {
     async function mapHistoricalRates() {
       const result = await fetchHistoricalRates(baseCurrency, targetCurrency);
-      const mappedRates = {};
-      for (let [month, rates] of Object.entries(result.rates)) {
-        mappedRates[month] = rates[targetCurrency];
+      if (result === "") {
+        setIsValidCurrency(false);
+      } else {
+        const mappedRates = {};
+        for (let [month, rates] of Object.entries(result.rates)) {
+          mappedRates[month] = rates[targetCurrency];
+        }
+        setHistoricalMap(mappedRates);
+        setIsValidCurrency(true);
       }
-      setHistoricalMap(mappedRates);
     }
 
     mapHistoricalRates();
@@ -77,7 +83,16 @@ function HistoricalRatesChart({ baseCurrency, targetCurrency }) {
 
   return (
     <div className="w-full h-full">
-      <canvas ref={canvasRef} className="w-full h-full bg-transparent"></canvas>
+      {isValidCurrency ? (
+        <canvas
+          ref={canvasRef}
+          className="w-full h-full bg-transparent"
+        ></canvas>
+      ) : (
+        <div className="text-center text-red-500 text-xl font-bold">
+          **Chart not available**
+        </div>
+      )}
     </div>
   );
 }
