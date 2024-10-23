@@ -4,7 +4,7 @@ import { Chart as ChartJS } from "chart.js/auto";
 
 function HistoricalRatesChart({ baseCurrency, targetCurrency }) {
   const canvasRef = useRef(null);
-  const chartInstanceRef = useRef(null); // Keep track of the chart instance
+  const chartInstanceRef = useRef(null);
   const [historicalMap, setHistoricalMap] = useState({});
 
   useEffect(() => {
