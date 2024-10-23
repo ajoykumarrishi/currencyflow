@@ -1,16 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { fetchHistoricalRates } from "../../Services/exchange-rate-service";
-import Chart from 'chart.js/auto';
+import { Chart as ChartJS } from "chart.js/auto";
 
-function HistoricalRatesChart() {
+function HistoricalRatesChart({ baseCurrency, targetCurrency }) {
   const canvasRef = useRef(null);
+  const chartInstanceRef = useRef(null); // Keep track of the chart instance
   const [historicalMap, setHistoricalMap] = useState({});
 
   useEffect(() => {
-    async function mapHistoricalRates(
-      baseCurrency = "USD",
-      targetCurrency = "INR"
-    ) {
+    async function mapHistoricalRates() {
       const result = await fetchHistoricalRates(baseCurrency, targetCurrency);
       const mappedRates = {};
       for (let [month, rates] of Object.entries(result.rates)) {
@@ -20,16 +18,23 @@ function HistoricalRatesChart() {
     }
 
     mapHistoricalRates();
+  }, [baseCurrency, targetCurrency]);
 
-    if (canvasRef.current) {
+  useEffect(() => {
+    if (Object.keys(historicalMap).length && canvasRef.current) {
       const ctx = canvasRef.current.getContext("2d");
-      new Chart(ctx, {
+
+      if (chartInstanceRef.current) {
+        chartInstanceRef.current.destroy();
+      }
+
+      chartInstanceRef.current = new ChartJS(ctx, {
         type: "line",
         data: {
           labels: Object.keys(historicalMap),
           datasets: [
             {
-              label: `Exchange Rate Over Time`,
+              label: `Exchange Rate: ${baseCurrency} to ${targetCurrency} Over Time`,
               data: Object.values(historicalMap),
               fill: false,
               borderColor: "#6b46c1",
@@ -38,6 +43,8 @@ function HistoricalRatesChart() {
           ],
         },
         options: {
+          responsive: true,
+          maintainAspectRatio: false,
           plugins: {
             legend: {
               labels: {
@@ -60,7 +67,13 @@ function HistoricalRatesChart() {
         },
       });
     }
-  }, [historicalMap]);
+
+    return () => {
+      if (chartInstanceRef.current) {
+        chartInstanceRef.current.destroy();
+      }
+    };
+  }, [historicalMap, baseCurrency, targetCurrency]);
 
   return (
     <div className="w-full h-full">
