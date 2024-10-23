@@ -66,7 +66,7 @@ function LiveExchangeRates() {
         </div>
       </div>
 
-      <div className="w-full max-w-3xl mb-0"> {/* mb-0 added to remove any bottom margin */}
+      <div className="w-full max-w-3xl mb-0">
         <table className="min-w-full bg-white rounded-lg shadow-lg overflow-hidden">
           <thead className="bg-orange-200">
             <tr>
